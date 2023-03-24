@@ -2,3 +2,10 @@
 
 
 
+<p>
+<%@person.quotes.each do |quote|%>
+"<%=quote.text%>"<br>
+<%=quote.person_id%><br>
+<%=quote.recorded%>
+</p>
+<%end%>
