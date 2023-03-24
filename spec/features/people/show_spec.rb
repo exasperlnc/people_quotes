@@ -8,11 +8,14 @@ RSpec.describe Person do
     visit "/people/#{@person.id}"
   end
 
-  xit "displays the persons DOB" do
-    
+  it "displays the persons DOB" do
+    visit "/people/#{@person.id}"
+    expect(page).to have_content("2005-10-10")
   end
 
-  xit "displays if the person is deceased" do
+  it "displays if the person is deceased" do
+    visit "/people/#{@person.id}"
     
+    expect(page).to have_content(@person.deceased)
   end
 end
