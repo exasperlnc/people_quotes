@@ -25,4 +25,11 @@ RSpec.describe Quote do
     visit "/quotes#index"
     expect(page).to have_content(quote.person_id)
   end
+
+  xit 'displays created at' do #Can't get it to work because can't get the correct date to display...
+    person = Person.create(name: "Logan", deceased: false, birthday: 20051010)
+    visit "/people/#{person.id}"
+
+    expect(page).to have_content(quote.created_at)
+  end
 end

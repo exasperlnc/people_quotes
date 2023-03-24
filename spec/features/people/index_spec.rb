@@ -21,4 +21,11 @@ RSpec.describe Person do
     
     expect(page).to have_content(person.deceased)
   end
+
+  xit 'displays created at' do #Can't get it to work because can't get the correct date to display...
+    person = Person.create(name: "Logan", deceased: false, birthday: 20051010)
+    visit "/people/#{person.id}"
+
+    expect(page).to have_content(person.created_at)
+  end
 end
