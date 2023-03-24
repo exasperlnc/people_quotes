@@ -8,6 +8,6 @@ class PeopleController < ApplicationController
   end
 
   def quote_index
-    
+    @person = Person.find(params[:id])
   end
 end
