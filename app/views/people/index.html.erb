@@ -1,0 +1,9 @@
+<h1>People</h1>
+
+<% @people.each do |person| %>
+  <p>
+  Name: <%=person.name%><br>
+  Deceased: <%=person.deceased%><br>
+  Birthday: <%=person.birthday%><br>
+  </p>
+<% end %>
