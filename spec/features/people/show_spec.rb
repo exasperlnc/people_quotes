@@ -26,4 +26,20 @@ RSpec.describe Person do
 
     expect(page).to have_content("Quotes: 2")
   end
+
+  it 'has link to People index' do
+    quote = @person.quotes.create(text: "It really do be like that sometimes", recorded:20051010, clicks: 0)
+    quote2 = @person.quotes.create(text: "fr", recorded: 20230101, clicks: 0)
+    visit "/people/#{@person.id}"
+    
+    expect(page).to have_content("Index of Quoted People")
+  end
+
+  it 'has link to quotes index' do
+    quote = @person.quotes.create(text: "It really do be like that sometimes", recorded:20051010, clicks: 0)
+    quote2 = @person.quotes.create(text: "fr", recorded: 20230101, clicks: 0)
+    visit "/people/#{@person.id}"
+    
+    expect(page).to have_content("Index of Quotes")
+  end
 end

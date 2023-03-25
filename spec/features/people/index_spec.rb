@@ -28,4 +28,18 @@ RSpec.describe Person do
 
     expect(page).to have_content(person.created_at)
   end
+
+  it 'has link to People index' do
+    person = Person.create(name: "Logan", deceased: false, birthday: 20051010)
+    visit "/people/#{person.id}"
+    
+    expect(page).to have_content("Index of Quoted People")
+  end
+
+  it 'has link to quotes index' do
+    person = Person.create(name: "Logan", deceased: false, birthday: 20051010)
+    visit "/people/#{person.id}"
+    
+    expect(page).to have_content("Index of Quotes")
+  end
 end
