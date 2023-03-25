@@ -18,4 +18,12 @@ RSpec.describe Person do
     
     expect(page).to have_content(@person.deceased)
   end
+
+  it 'shows count of associated quotes' do
+    quote = @person.quotes.create(text: "It really do be like that sometimes", recorded:20051010, clicks: 0)
+    quote2 = @person.quotes.create(text: "fr", recorded: 20230101, clicks: 0)
+    visit "/people/#{@person.id}"
+
+    expect(page).to have_content("Quotes: 2")
+  end
 end

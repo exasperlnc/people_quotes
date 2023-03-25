@@ -4,8 +4,4 @@ class Person < ApplicationRecord
     # def increase_clicks
   #   clicks += 1  
   # end
-
-  def total_children
-    
-  end
 end
