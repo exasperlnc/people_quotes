@@ -25,4 +25,20 @@ RSpec.describe Quote do
     visit "/quotes/#{quote.id}"
     expect(page).to have_content(quote.person_id)
   end
+
+  it 'has link to People index' do
+    person = Person.create(name: "Logan", deceased: false, birthday: 19960401)
+    quote = person.quotes.create(text: "Waaaah", recorded: 19960401, clicks: 0)
+    visit "/quotes/#{quote.id}"
+    
+    expect(page).to have_content("Index of Quoted People")
+  end
+
+  it 'has link to quotes index' do
+    person = Person.create(name: "Logan", deceased: false, birthday: 19960401)
+    quote = person.quotes.create(text: "Waaaah", recorded: 19960401, clicks: 0)
+    visit "/quotes/#{quote.id}"
+    
+    expect(page).to have_content("Index of Quotes")
+  end
 end
