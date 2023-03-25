@@ -47,6 +47,6 @@ RSpec.describe Person do
     person = Person.create(name: "Logan", deceased: false, birthday: 20051010)
     visit "/people"
     
-    expect(page).to have_content("New ")
+    expect(page).to have_content("New Person")
   end
 end
