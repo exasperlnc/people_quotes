@@ -42,4 +42,10 @@ RSpec.describe Person do
     
     expect(page).to have_content("Index of Quotes")
   end
+
+  it "links to person's quote page" do
+    visit "/people/#{@person.id}"
+    
+    expect(page).to have_content("#{@person.name}'s Quotes")
+  end
 end
