@@ -48,4 +48,10 @@ RSpec.describe Person do
     
     expect(page).to have_content("#{@person.name}'s Quotes")
   end
+
+  it 'links to update parent page' do
+    visit "/people/#{@person.id}"
+    
+    expect(page).to have_content("Update Parent")
+  end
 end
