@@ -20,6 +20,11 @@ class PeopleController < ApplicationController
   end
 
   def person_params
-    params.permit(:name, :deceased, :birthdayn )
+    params.permit(:name, :deceased, :birthday)
+  end
+
+  def create
+    person = Person.create(params[:name, :deceased, :birthday])
+    redirect_to "/people"
   end
 end
