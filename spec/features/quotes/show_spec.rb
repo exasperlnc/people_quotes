@@ -41,4 +41,14 @@ RSpec.describe Quote do
     
     expect(page).to have_content("Index of Quotes")
   end
+
+  it 'updates click counter' do
+    person = Person.create!(name: 'Jim', deceased: false, birthday: 20051010, clicks: 0)
+    quote = person.quotes.create(text: "Waaaah", recorded: 19960401, clicks: 0)
+    
+    visit "/quotes/#{quote.id}"
+    save_and_open_page
+    
+    expect(page).to have_content("Clicks: 1")
+  end
 end

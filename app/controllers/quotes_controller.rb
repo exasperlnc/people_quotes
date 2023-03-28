@@ -5,6 +5,6 @@ class QuotesController < ApplicationController
 
   def show
     @quote = Quote.find(params[:id])
-    # @quote.increase_clicks
+    @quote.increase_clicks
   end
 end
