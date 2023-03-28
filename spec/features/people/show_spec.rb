@@ -59,6 +59,6 @@ RSpec.describe Person do
     person = Person.create!(name: 'Jim', deceased: false, birthday: 20051010, clicks: 0)
     visit "/people/#{person.id}"
     
-    expect(person.clicks).to eq(1)
+    expect(page).to have_content("Clicks: 1")
   end
 end
