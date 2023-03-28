@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   def index
-    @people = Person.all
+    @people = Person.all.order('created_at DESC')
   end
 
   def new
@@ -8,6 +8,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
+    # @person.increase_clicks
   end
 
   def quote_index
@@ -20,6 +21,11 @@ class PeopleController < ApplicationController
   end
 
   def person_params
-    params.permit(:name, :deceased, :birthdayn )
+    params.permit(:name, :deceased, :birthday)
+  end
+
+  def create
+    person = Person.create(params[:name, :deceased, :birthday])
+    redirect_to "/people"
   end
 end
