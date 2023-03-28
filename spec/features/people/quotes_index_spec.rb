@@ -34,7 +34,6 @@ RSpec.describe Person do
     quote2 = person.quotes.create(text: "fr", recorded: 20230101, clicks: 0)
     visit "/people/#{person.id}/quotes"
     
-    save_and_open_page
     expect(page).to have_content("Index of Quotes")
   end
 end
