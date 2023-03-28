@@ -8,6 +8,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
+    # @person.increase_clicks
   end
 
   def quote_index
