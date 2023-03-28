@@ -8,16 +8,17 @@ RSpec.describe "create Person" do
   it "links to the create page" do
     visit '/people'
 
-    click_button "Create new Person"
+    click_link "New Person"
 
     expect(current_path).to eq("/people/new")
   end
 
   it "creates new artist" do
     visit '/people/new'
+    save_and_open_page
 
     fill_in('Name', with: 'Finn')
-    fill_in('deceased', with: false)
+    check('Deceased')
     fill_in('birthday', with: 2015-10-10)
 
     click_button('Create Person')

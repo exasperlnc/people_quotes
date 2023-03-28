@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/people/:id', to: 'people#show'
   get '/people/:id/quotes', to: 'people#quote_index'
   get '/people/:id/update', to: 'people#update'
+  post '/people', to: 'people#create'
 end

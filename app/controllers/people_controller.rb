@@ -25,7 +25,7 @@ class PeopleController < ApplicationController
   end
 
   def create
-    person = Person.create(params[:name, :deceased, :birthday])
+    person = Person.create(person_params)
     redirect_to "/people"
   end
 end
