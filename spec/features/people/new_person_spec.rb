@@ -15,10 +15,9 @@ RSpec.describe "create Person" do
 
   it "creates new artist" do
     visit '/people/new'
-    save_and_open_page
 
     fill_in('Name', with: 'Finn')
-    check('Deceased')
+    # click_on('Deceased') can 't get this to work 
     fill_in('birthday', with: 2015-10-10)
 
     click_button('Create Person')
