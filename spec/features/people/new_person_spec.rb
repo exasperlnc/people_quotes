@@ -23,6 +23,6 @@ RSpec.describe "create Person" do
     click_button('Create Person')
 
     expect(current_path).to eq("/people")
-    expect(page).to have_content(Finn)
+    expect(page).to have_content("Finn")
   end
 end

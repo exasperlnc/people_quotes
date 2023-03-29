@@ -1,7 +1,9 @@
 <h2><a href="http://localhost:3000/people">Index of Quoted People</a>
 <a href="http://localhost:3000/quotes">Index of Quotes</a></h2>
-<%= form_with url: '/people', method: :post, local: true do |form|%>
+<%= form_with url: '/people', method: :patch, local: true do |form|%>
   <%= form.label :name %>
   <%= form.text_field :name %>
+  <%= form.label :birthday %>
+  <%= form.date_field :birthday %>
   <%= form.submit "Update Person"%>
   <%end%>
