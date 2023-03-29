@@ -2,9 +2,8 @@
 <h2><a href="http://localhost:3000/people">Index of Quoted People</a>
 <a href="http://localhost:3000/quotes">Index of Quotes</a></h2>
 
-
 <p>
-<%@person.quotes.each do |quote|%>
+<%@person.sort_quotes_alphabetically.each do |quote|%>
 "<%=quote.text%>"<br>
 <%=quote.person.name%> -- ID:
 <%=quote.person_id%><br>
