@@ -1,8 +1,12 @@
 <h2><a href="http://localhost:3000/people">Index of Quoted People</a>
 <a href="http://localhost:3000/quotes">Index of Quotes</a></h2>
 
-<%= for_with url: '/people', method: :post, local: true do |form| %>
+<%= form_with url: '/people', method: :post, local: true do |form| %>
   <%= form.label :name%>
   <%=form.text_field :name%>
+  <%= form.label :birthday%>
+  <%=form.date_field :birthday%>
   <%=form.label :deceased%>
-  <%= form.%>
+  <%= form.check_box"Deceased?" "1"%>
+  <%= form.submit 'Create Person'%>
+  <%end%>

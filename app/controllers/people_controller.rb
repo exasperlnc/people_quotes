@@ -16,8 +16,9 @@ class PeopleController < ApplicationController
   end
   
   def update
-    @person = Person.find(params[:id])
-    person = Person.create(name: params[:name])
+    # @person = Person.find(params[:id]) Why shouldn't I have this here? Lol
+    person = Person.update(person_params)
+    # redirect_to "/people"
   end
 
   def person_params
@@ -25,7 +26,7 @@ class PeopleController < ApplicationController
   end
 
   def create
-    person = Person.create(params[:name, :deceased, :birthday])
+    person = Person.create(person_params)
     redirect_to "/people"
   end
 end
